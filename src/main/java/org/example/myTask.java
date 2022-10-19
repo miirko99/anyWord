@@ -13,7 +13,8 @@ private int minimum;
             Scanner s=new Scanner(new File(fileName));
             String target=s.next();
             HashMap<Character,Integer> targetMap=new HashMap<>();
-            for(int i=0;i<target.length();i++){
+            int len=target.length();
+            for(int i=0;i<len;i++){
                 if(targetMap.containsKey(target.charAt(i))){
                     targetMap.replace(target.charAt(i),targetMap.get(target.charAt(i))+1);
                 }else{

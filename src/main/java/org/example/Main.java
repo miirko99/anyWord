@@ -13,10 +13,7 @@ public class Main {
         for(int i=0;i<listOfFiles.length;i++){
             if(!listOfFiles[i].isFile()){continue;}
             if(!listOfFiles[i].getName().endsWith(".txt")){continue;}
-            if(listOfFiles[i].getName().endsWith("output.txt")){
-                System.out.println("asdf");
-                continue;
-            }
+            if(listOfFiles[i].getName().endsWith("output.txt")){continue;}
             service.execute(new myTask(listOfFiles[i].getName()));
             System.out.println(listOfFiles[i].getName());
         }
