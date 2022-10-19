@@ -11,7 +11,7 @@ private int minimum;
     public void run() {
         try {
             Scanner s=new Scanner(new File(fileName));
-            String target=s.next();
+            String target=s.nextLine();
             HashMap<Character,Integer> targetMap=new HashMap<>();
             int len=target.length();
             for(int i=0;i<len;i++){
@@ -22,7 +22,7 @@ private int minimum;
                 }
             }
             while(s.hasNext()){
-                count(targetMap,target,s.next());
+                count(targetMap,target,s.nextLine());
             }
         } catch (FileNotFoundException e) {
             System.out.println("input File nije pronadjen");;
@@ -32,6 +32,7 @@ private int minimum;
         this.fileName =fileName;
     }
     void count(HashMap<Character,Integer> targetMap,String target,String source){
+        //System.out.println(target+" "+source);
         HashMap<Character,Integer> sourceMap=new HashMap<>();
         targetMap.forEach((key,val)->{sourceMap.put(key,0);});
         for (char ch:source.toCharArray()) {
@@ -46,7 +47,7 @@ private int minimum;
                 minimum=(int)sourceMap.get(key)/val;
             }
         });
-        System.out.println(String.format("%S in %S %d times",target,source,minimum));
+        //System.out.println(String.format("%S in %S %d times",target,source,minimum));
         toFile(String.format("%S in %S %d times",target,source,minimum));
     }
     synchronized void toFile(String s){
